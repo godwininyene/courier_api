@@ -8,7 +8,8 @@ const app = require('./app');
 let DB;
 if(process.env.NODE_ENV === 'production'){
     // DB = '';
-    DB = process.env.DB_LOCAL;
+    // DB = process.env.DB_LOCAL;
+      DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 }else{
     DB = process.env.DB_LOCAL;
 }
