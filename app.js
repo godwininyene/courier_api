@@ -13,33 +13,17 @@ app.use(express.json())
 app.use(cookieParser())
 
 //Implement cors
-// app.use(cors({
-//     origin: '*',
-//     allowedHeaders:['Content-Type', 'Authorization']
-// //   origin: process.env.FRONTEND_URL,
-// //   credentials: true,               // Allow credentials such as cookies
-// }));
-
 app.use(cors({
     origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'],     // allow headers
+//   origin: process.env.FRONTEND_URL,
+  credentials: true,               // Allow credentials such as cookies
 }));
 
-
-// app.options('*', cors({
-//     // origin: process.env.FRONTEND_URL,
-//      allowedHeaders:['Content-Type', 'Authorization'],
-//     origin: '*',
-//     // credentials: true,
-// }));
-
-app.options('*',cors({
+app.options('*', cors({
+    // origin: process.env.FRONTEND_URL,
     origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'],     // allow headers
+    credentials: true,
 }));
-
 
 app.use('/api/shipments', shipmentRouter);
 app.use('/api/users', userRouter)
