@@ -15,6 +15,7 @@ app.use(cookieParser())
 //Implement cors
 app.use(cors({
     origin: '*',
+    allowedHeaders:['Content-Type', 'Authorization'],
 //   origin: process.env.FRONTEND_URL,
   credentials: true,               // Allow credentials such as cookies
 }));
@@ -22,6 +23,7 @@ app.use(cors({
 app.options('*', cors({
     // origin: process.env.FRONTEND_URL,
     origin: '*',
+    allowedHeaders:['Content-Type', 'Authorization'],
     credentials: true,
 }));
 
