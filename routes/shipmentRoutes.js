@@ -17,6 +17,6 @@ router.route('/:id')
     .get(shipmentController.getShipment)
     .patch(shipmentController.updateShipment)
     .delete(shipmentController.updateShipment)
-
+router.patch('/history/:id', shipmentController.updateShipmentHistory)
 
 module.exports = router;

@@ -116,6 +116,16 @@ const ShipmentSchema = new mongoose.Schema({
         default: null 
     }
     
-}, { timestamps: true });
+},{
+  timestamps: true,
+  toJSON: { virtuals: true },   
+  toObject: { virtuals: true }  
+});
+
+ShipmentSchema.virtual('histories', {
+    ref:'ShipmentHistory',
+    foreignField:'shipmentId',
+    localField:'_id'
+});
 
 module.exports = mongoose.model('Shipment', ShipmentSchema);
